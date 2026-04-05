@@ -134,11 +134,4 @@ Kiểm tra file:
 - `baseURL` trỏ đúng `http://localhost:8080/api/v1`
 - Backend đang chạy ở port `8080`
 
-## 9. Lưu ý bảo mật khi nộp source
 
-- Không commit secret thực (mail password, payment key, cloud key)
-- Ưu tiên đưa secret sang biến môi trường (`ENV`) khi triển khai thực tế
-
----
-
-Nếu cần trình diễn nhanh trên lớp: chạy Backend trước, rồi chạy Frontend, mở `http://localhost:5173`.
