@@ -1,6 +1,6 @@
-# Online Course Marketplace Payment
+# Online Course Marketplace
 
-Tài liệu này hướng dẫn chạy dự án **fullstack** trên máy local.
+Tài liệu này hướng dẫn chạy dự án **fullstack** trên máy local để demo/báo cáo môn học.
 
 ## 1. Tổng quan
 
@@ -25,6 +25,8 @@ Kiến trúc chạy local:
 
 - Node.js **20.19+** hoặc **22.12+**
 - npm
+
+> Lưu ý: Vite 8 không chạy với Node 19.x.
 
 ## 3. Chuẩn bị cơ sở dữ liệu
 
@@ -57,6 +59,10 @@ mvn spring-boot:run
 Backend chạy mặc định tại:
 
 - `http://localhost:8080`
+
+Tài liệu API (nếu bật Swagger):
+
+- `http://localhost:8080/swagger-ui/index.html`
 
 ## 5. Chạy Frontend
 
@@ -116,3 +122,23 @@ Giải pháp:
 1. Kiểm tra dịch vụ PostgreSQL đang chạy
 2. Kiểm tra DB `online_course` đã tồn tại
 3. Đồng bộ lại cấu hình datasource trong `application.yml`
+
+### 8.3 Frontend gọi API thất bại
+
+Kiểm tra file:
+
+- `frontend-elearning/src/api/axiosClient.js`
+
+Đảm bảo:
+
+- `baseURL` trỏ đúng `http://localhost:8080/api/v1`
+- Backend đang chạy ở port `8080`
+
+## 9. Lưu ý bảo mật khi nộp source
+
+- Không commit secret thực (mail password, payment key, cloud key)
+- Ưu tiên đưa secret sang biến môi trường (`ENV`) khi triển khai thực tế
+
+---
+
+Nếu cần trình diễn nhanh trên lớp: chạy Backend trước, rồi chạy Frontend, mở `http://localhost:5173`.
